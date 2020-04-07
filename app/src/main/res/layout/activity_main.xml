@@ -23,7 +23,6 @@
             android:background="@color/colorScreen"
             android:gravity="right|center"
             android:layout_margin="1dp"
-
             />
     </LinearLayout>
     <LinearLayout
@@ -44,7 +43,6 @@
             android:textSize="30dp"
             android:background="@color/number"
             android:layout_margin="1dp"
-
 
             />
         <TextView
