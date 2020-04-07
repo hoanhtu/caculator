@@ -24,10 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // findID();
-        Caculator caculator=new Caculator();
-        String result1=caculator.Add("1","2");
-        String result=caculator.Subtract("500","3");
+        findID();
+
     }
     private void findID() {
         edScreen = (EditText) findViewById(R.id.screen);
@@ -46,66 +44,77 @@ public class MainActivity extends AppCompatActivity {
         tru = (TextView) findViewById(R.id.subtraction);
         nhan = (TextView) findViewById(R.id.multiplication);
         chia = (TextView) findViewById(R.id.division);
+        bang = (TextView) findViewById(R.id.equal);
 
         num0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="0";
+                edScreen.setText(current);
             }
         });
-
         num1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="1";
+                edScreen.setText(current);
             }
         });
         num2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="2";
+                edScreen.setText(current);
             }
         });
         num3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="3";
+                edScreen.setText(current);
             }
         });
         num4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="4";
+                edScreen.setText(current);
             }
         });
         num5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="5";
+                edScreen.setText(current);
             }
         });
         num6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="6";
+                edScreen.setText(current);
             }
         });
         num7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="7";
+                edScreen.setText(current);
             }
         });
         num8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="8";
+                edScreen.setText(current);
             }
         });
         num9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current+="9";
+                edScreen.setText(current);
+
             }
         });
         cong.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
                 firstNum=current;
                 Log.d("TEST",firstNum);
                 dau="+";
+                current="";
+                edScreen.setText(current);
             }
         });
         tru.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +133,52 @@ public class MainActivity extends AppCompatActivity {
                 firstNum=current;
                 Log.d("TEST",firstNum);
                 dau="-";
+                current="";
+                edScreen.setText("");
+            }
+        });
+        nhan.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                firstNum=current;
+                dau="*";
+                current="";
+                edScreen.setText("");
+            }
+        });
+        chia.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                firstNum=current;
+                dau="/";
+                current="";
+                edScreen.setText("");
+            }
+        });
+        bang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                secondNum=current;
+                Caculator caculator=new Caculator();
+                String result="";
+                if(dau.equals("+")==true){
+                    result=caculator.Add(firstNum,secondNum);
+                }
+                if(dau.equals("-")==true){
+                    result=caculator.Subtract(firstNum,secondNum);
+                }
+                if(dau.equals("*")==true){
+                    result=caculator.Multiple(firstNum,secondNum);
+                }
+                if(dau.equals("/")==true){
+                    result=caculator.Divide(firstNum,secondNum);
+                }
+                edScreen.setText(result);
+                firstNum="";
+                secondNum="";
+                current="";
             }
         });
     }

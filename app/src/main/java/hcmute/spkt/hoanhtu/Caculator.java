@@ -61,4 +61,18 @@ public class Caculator {
         BigInteger result=num1.subtract(num2);
         return result.toString();
     }
+    public String Multiple(String s1,String s2){
+        BigInteger num1, num2;
+        num1=new BigInteger(s1);
+        num2=new BigInteger(s2);
+        BigInteger result=num1.multiply(num2);
+        return result.toString();
+    }
+    public String Divide(String s1,String s2){
+        BigInteger num1, num2;
+        num1=new BigInteger(s1);
+        num2=new BigInteger(s2);
+        BigInteger result=num1.divide(num2);
+        return result.toString();
+    }
 }
