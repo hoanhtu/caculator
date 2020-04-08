@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (edScreen.getText().toString().endsWith("+")
                         || edScreen.getText().toString().endsWith("-")
                         || edScreen.getText().toString().endsWith("*")
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     Button button = (Button) view;
                     edScreen.append(button.getText());
                 }
-
             }
         };
         findViewById(R.id.sumation).setOnClickListener(listener);
