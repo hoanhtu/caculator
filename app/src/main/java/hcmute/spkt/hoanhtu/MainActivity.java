@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void findID() {
         edScreen = (EditText) findViewById(R.id.screen);
-        edScreen.setText("con me no");
+        edScreen.setText("");
         num0 = (Button) findViewById(R.id.num0);
 
         num1 = (Button) findViewById(R.id.num1);
@@ -55,10 +55,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Button btn = (Button) view;
-                    System.out.println(btn.getText());
                     edScreen.append(btn.getText().toString());
                 } catch (Exception e) {
-
                     System.out.println(61 + " " + e.getMessage());
                 }
             }
@@ -79,24 +77,19 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!edScreen.getText().toString().isEmpty()) {
-                    if (edScreen.getText().toString().contains("+")
-                            || edScreen.getText().toString().contains("-")
-                            || edScreen.getText().toString().contains("*")
-                            || edScreen.getText().toString().contains("/")) {
-                        System.out.println("nothing");
-                    } else {
-                        Button button = (Button) view;
-                        edScreen.append(button.getText());
-                    }
+
+                if (edScreen.getText().toString().endsWith("+")
+                        || edScreen.getText().toString().endsWith("-")
+                        || edScreen.getText().toString().endsWith("*")
+                        || edScreen.getText().toString().endsWith("/")) {
+                    System.out.println("nothing");
+                } else {
+                    Button button = (Button) view;
+                    edScreen.append(button.getText());
                 }
+
             }
         };
-
-//        plus = (Button) findViewById(R.id.sumation);
-//        minus = (Button) findViewById(R.id.subtraction);
-//        multiply = (Button) findViewById(R.id.multiplication);
-//        division = (Button) findViewById(R.id.division);
         findViewById(R.id.sumation).setOnClickListener(listener);
         findViewById(R.id.subtraction).setOnClickListener(listener);
         findViewById(R.id.multiplication).setOnClickListener(listener);
